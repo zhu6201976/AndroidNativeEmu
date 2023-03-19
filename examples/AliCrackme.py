@@ -4,6 +4,8 @@
 @File : AliCrackme.py.py 
 @Software: PyCharm
 @Csdn : https://blog.csdn.net/zhu6201976
+
+模拟运行获取静态密码wojiushidaan 并未生成动态密码aiyou,bucuoo
 """
 import logging
 import sys
@@ -19,7 +21,6 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)7s %(name)34s | %(message)s"
 )
-
 logger = logging.getLogger(__name__)
 
 # Initialize emulator
@@ -49,6 +50,4 @@ emulator.call_symbol(lib_module,
                      0x0,
                      'wojiushidaan')  # zhuhualong aiyou,bucuoo wojiushidaan
 
-for R in [UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3, UC_ARM_REG_R4, UC_ARM_REG_R5, UC_ARM_REG_R6,
-          UC_ARM_REG_R7, UC_ARM_REG_R8, UC_ARM_REG_R9, UC_ARM_REG_R10, UC_ARM_REG_R11, UC_ARM_REG_R12, UC_ARM_REG_PC]:
-    print("%s" % emulator.uc.reg_read(R))  # 1 success 0 fail
+logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))  # 1 success 0 fail

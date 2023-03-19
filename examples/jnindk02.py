@@ -1,3 +1,7 @@
+"""
+app运行正常 frida so层hook bug
+模拟器运行so函数bug
+"""
 import logging
 import posixpath
 import sys
@@ -20,19 +24,19 @@ class MainActivity(metaclass=JavaClassDef, jvm_name='com/example/jnindk02/MainAc
         pass
 
     @java_method_def(name='add', signature='(FF)F', native=True)
-    def add(self, uc, n1, n2):
+    def add(self, uc):
         pass
 
     @java_method_def(name='sub', signature='(FF)F', native=True)
-    def sub(self, uc, n1, n2):
+    def sub(self, uc):
         pass
 
     @java_method_def(name='mul', signature='(FF)F', native=True)
-    def mul(self, uc, n1, n2):
+    def mul(self, uc):
         pass
 
     @java_method_def(name='div', signature='(FF)F', native=True)
-    def div(self, uc, n1, n2):
+    def div(self, uc):
         pass
 
 # Configure logging

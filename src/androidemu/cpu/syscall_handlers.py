@@ -47,4 +47,4 @@ class SyscallHandlers:
             error = "Unhandled syscall 0x%x (%u) at 0x%x, stopping emulation" % (idx, idx,
                                                                                       uc.reg_read(UC_ARM_REG_PC))
             uc.emu_stop()
-            raise RuntimeError(error)
+            # raise RuntimeError(error)  # zhuhualong

@@ -1,3 +1,7 @@
+"""
+模拟成功
+"""
+
 import logging
 import sys
 
@@ -39,6 +43,5 @@ emulator.call_symbol(lib_module,
                      'Java_com_a_easyjni_MainActivity_ncheck',
                      emulator.java_vm.jni_env.address_ptr,
                      0x0,
-                     'QAoOQMPFks1BsB7cbM3TQsXg30i9g3==')  # QAoOQMPFks1BsB7cbM3TQsXg30i9g3== right enter
-
+                     'QAoOQMPFks1BsB7cbM3TQsXg30i9g3==')  # QAoOQMPFks1BsB7cbM3TQsXg30i9g3==
 print("%s" % emulator.uc.reg_read(UC_ARM_REG_R0))  # 1 success 0 fail
