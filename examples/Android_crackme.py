@@ -43,10 +43,10 @@ def hook_code(uc, address, size, user_data):
 emulator.call_symbol(lib_module,
                      'Java_com_ph0en1x_android_1crackme_MainActivity_getFlag',
                      emulator.java_vm.jni_env.address_ptr,
-                     0)
+                     0x0)
 
 emulator.call_symbol(lib_module,
                      'Java_com_ph0en1x_android_1crackme_MainActivity_encrypt',
                      emulator.java_vm.jni_env.address_ptr,
-                     0,
+                     0x0,
                      'KE3TLNE6M43EK4GM34LKMLETG')
