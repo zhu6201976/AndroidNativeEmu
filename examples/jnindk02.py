@@ -4,6 +4,7 @@ import sys
 
 from unicorn import UcError, UC_HOOK_MEM_UNMAPPED, UC_HOOK_CODE
 from unicorn.arm_const import *
+from unicorn.unicorn_const import UC_HOOK_MEM_WRITE, UC_HOOK_MEM_READ
 
 from androidemu.emulator import Emulator
 from androidemu.java.java_class_def import JavaClassDef
@@ -76,20 +77,21 @@ for module in emulator.modules:
 try:
     # Run JNI_OnLoad.
     #   JNI_OnLoad will call 'RegisterNatives'.
-    emulator.call_symbol(lib_module, 'JNI_OnLoad', emulator.java_vm.address_ptr, 0x00)
+    emulator.call_symbol(lib_module, 'JNI_OnLoad', emulator.java_vm.address_ptr, 0x0)
 
     # Do native stuff.
+    a, b = 200, 100
     main_activity = MainActivity()
-    # main_activity.add(emulator, 100, 600)
-    # logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
+    main_activity.add(emulator, a, b)
+    logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
 
-    # main_activity.sub(emulator, 200, 100)
-    # logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
+    main_activity.sub(emulator, a, b)
+    logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
 
-    # main_activity.mul(emulator, 100, 200)
-    # logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
+    main_activity.mul(emulator, a, b)
+    logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
 
-    main_activity.div(emulator, 100, 2)
+    main_activity.div(emulator, a, b)
     logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
 
     # Dump natives found.
