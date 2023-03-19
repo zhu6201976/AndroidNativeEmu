@@ -1,3 +1,6 @@
+"""
+动态注册
+"""
 import logging
 import posixpath
 import sys
@@ -13,16 +16,13 @@ import debug_utils
 
 
 # Create java class.
-class MainActivity(metaclass=JavaClassDef, jvm_name='local/myapp/testnativeapp/MainActivity'):
+class MainActivity(metaclass=JavaClassDef, jvm_name='com/ctf/test/ctf_100/MainActivity'):
 
     def __init__(self):
         pass
 
-    @java_method_def(name='stringFromJNI', signature='()Ljava/lang/String;', native=True)
-    def string_from_jni(self, uc):
-        pass
-
-    def test(self):
+    @java_method_def(name='get_flag', signature='(I)Ljava/lang/String;', native=True)
+    def getFlag(self, uc, i):
         pass
 
 
@@ -52,7 +52,8 @@ emulator.load_library("example_binaries/32/libdl.so")
 emulator.load_library("example_binaries/32/libc.so")
 emulator.load_library("example_binaries/32/libstdc++.so")
 emulator.load_library("example_binaries/32/libm.so")
-lib_module = emulator.load_library("example_binaries/32/libnative-lib_jni.so")
+emulator.load_library("example_binaries/32/liblog.so")
+lib_module = emulator.load_library("example_binaries/32/libctf.so")
 
 # Show loaded modules.
 logger.info("Loaded modules:")
@@ -72,7 +73,7 @@ try:
 
     # Do native stuff.
     main_activity = MainActivity()
-    logger.info("Response from JNI call: %s" % main_activity.string_from_jni(emulator))
+    logger.info("Response from JNI call: %s" % main_activity.getFlag(emulator, 100000))
 
     # Dump natives found.
     logger.info("Exited EMU.")

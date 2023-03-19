@@ -19,9 +19,6 @@ logger = logging.getLogger(__name__)
 # Initialize emulator
 emulator = Emulator(vfp_inst_set=True)
 emulator.load_library("example_binaries/32/libc.so", do_init=False)
-emulator.load_library("example_binaries/32/libm.so", do_init=False)
-emulator.load_library("example_binaries/32/libstdc++.so", do_init=False)
-emulator.load_library("example_binaries/32/libdl.so", do_init=False)
 lib_module = emulator.load_library("example_binaries/32/libphcm.so", do_init=False)
 
 # Show loaded modules.
