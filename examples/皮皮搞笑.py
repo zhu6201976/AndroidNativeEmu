@@ -90,7 +90,7 @@ for module in emulator.modules:
     logger.info("=> 0x%08x - %s" % (module.base, module.filename))
 
 # Debug
-# emulator.uc.hook_add(UC_HOOK_CODE, debug_utils.hook_code)
+emulator.uc.hook_add(UC_HOOK_CODE, debug_utils.hook_code)
 # emulator.uc.hook_add(UC_HOOK_MEM_UNMAPPED, debug_utils.hook_unmapped)
 # emulator.uc.hook_add(UC_HOOK_MEM_WRITE, debug_utils.hook_mem_write)
 # emulator.uc.hook_add(UC_HOOK_MEM_READ, debug_utils.hook_mem_read)
@@ -103,7 +103,7 @@ try:
     # Do native stuff.
     main_activity = NetCrypto()
     # main_activity.native_init(emulator)
-    logger.info("Response from JNI call: %s" % main_activity.setProtocolKey(emulator, 'duck-1680937792-QApRr6VD8djK7RtHZC/17wG5mE3ZSdk0i2VWQ20uo67h8uf8b1MvbbZKEFGf4fLTjybZRFh557+V6tLyC0R86TCp/XATGr3QbdUXazV5JeU='))
+    # logger.info("Response from JNI call: %s" % main_activity.setProtocolKey(emulator, 'duck-1680937792-QApRr6VD8djK7RtHZC/17wG5mE3ZSdk0i2VWQ20uo67h8uf8b1MvbbZKEFGf4fLTjybZRFh557+V6tLyC0R86TCp/XATGr3QbdUXazV5JeU='))
     logger.info("Response from JNI call: %s" % main_activity.getProtocolKey(emulator))
     # logger.info("Response from JNI call: %s" % main_activity.encodeAES(emulator, bytearray([1,2,3,4,5])))
     logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))  # 1 success 0 fail
