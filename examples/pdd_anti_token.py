@@ -25,11 +25,11 @@ class DeviceNative(metaclass=JavaClassDef, jvm_name='com/xunmeng/pinduoduo/secur
     def __init__(self):
         pass
 
-    @java_method_def(name='info', signature='(android.content.Context, J)Ljava/lang/String;', native=True)
+    @java_method_def(name='info', signature='(android.content.Context;J)Ljava/lang/String;', native=True)
     def info(self, uc):
         pass
 
-    @java_method_def(name='info2', signature='(android.content.Context, J)Ljava/lang/String;', native=True)
+    @java_method_def(name='info2', signature='(android.content.Context;J)Ljava/lang/String;', native=True)
     def info2(self, uc):
         pass
 
@@ -57,9 +57,10 @@ emulator.java_classloader.add_class(DeviceNative)
 # Load all libraries.
 emulator.load_library("example_binaries/32/libc.so")
 emulator.load_library("example_binaries/32/libdl.so")
-# emulator.load_library("example_binaries/32/libstdc++.so")
+emulator.load_library("example_binaries/32/libstdc++.so")
 emulator.load_library("example_binaries/32/libm.so")
 emulator.load_library("example_binaries/32/liblog.so")
+emulator.load_library("example_binaries/32/libUserEnv.so")
 lib_module = emulator.load_library("example_binaries/32/libPddSecure.so")
 
 # Show loaded modules.
@@ -80,7 +81,7 @@ try:
 
     # Do native stuff.
     main_activity = DeviceNative()
-    logger.info("Response from JNI call: %s" % main_activity.info2(emulator, int(time.time()*1000)))
+    logger.info("Response from JNI call: %s" % main_activity.info2(emulator, 1688005725349))
 
     # Dump natives found.
     logger.info("Exited EMU.")
