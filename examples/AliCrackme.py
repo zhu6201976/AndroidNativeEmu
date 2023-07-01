@@ -48,6 +48,6 @@ emulator.call_symbol(lib_module,
                      'Java_com_yaotong_crackme_MainActivity_securityCheck',
                      emulator.java_vm.jni_env.address_ptr,
                      0x0,
-                     'wojiushidaan')  # zhuhualong aiyou,bucuoo wojiushidaan
+                     'wojiushidaan')  # aiyou,bucuoo wojiushidaan
 
 logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))  # 1 success 0 fail
