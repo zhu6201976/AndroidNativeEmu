@@ -39,17 +39,17 @@ def hook_code(uc, address, size, user_data):
 # emulator.uc.hook_add(UC_HOOK_CODE, hook_code)
 
 ret = emulator.call_symbol(lib_module,
-                     'Java_com_ph0en1x_android_1crackme_MainActivity_getFlag',
-                     emulator.java_vm.jni_env.address_ptr,
-                     0x0)
+                           'Java_com_ph0en1x_android_1crackme_MainActivity_getFlag',
+                           emulator.java_vm.jni_env.address_ptr,
+                           0x0)
 logger.info(f'getFlag返回值 {ret}')
 logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))
 
 s = 'KE3TLNE6M43EK4GM34LKMLETG'
 ret = emulator.call_symbol(lib_module,
-                     'Java_com_ph0en1x_android_1crackme_MainActivity_encrypt',
-                     emulator.java_vm.jni_env.address_ptr,
-                     0x0,
-                     s)
+                           'Java_com_ph0en1x_android_1crackme_MainActivity_encrypt',
+                           emulator.java_vm.jni_env.address_ptr,
+                           0x0,
+                           s)
 logger.info(f'encrypt参数 {s} 返回值 {ret}')
 logger.info(emulator.uc.reg_read(UC_ARM_REG_R0))

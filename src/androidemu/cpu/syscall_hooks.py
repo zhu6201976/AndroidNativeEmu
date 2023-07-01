@@ -57,7 +57,7 @@ class SyscallHooks:
         self._syscall_handler.set_handler(0x14e, "faccessat", 4, self._faccessat)
         self._syscall_handler.set_handler(0x14, "getpid", 0, self._getpid)
         self._syscall_handler.set_handler(0xe0, "gettid", 0, self._gettid)
-        self._syscall_handler.set_handler(0x78, "gettid", 0, self._gettid)  # zhuhualong
+        # self._syscall_handler.set_handler(0x78, "gettid", 0, self._gettid)  # Tesla
         # self._syscall_handler.set_handler(0x180,"null1",0, self._null)
         self._syscall_handler.set_handler(0x180, "getrandom", 3, self._getrandom)
         self._modules = modules
@@ -149,7 +149,7 @@ class SyscallHooks:
         if option == PR_SET_VMA:
             # arg5 contains ptr to a name.
             return 0
-        return 0  # zhuhualong
+        # return 0  # Tesla
         # else:
         #     raise NotImplementedError("Unsupported prctl option %d (0x%x)" % (option, option))
 

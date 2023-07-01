@@ -1,14 +1,12 @@
 """
-模拟成功
-
-动态注册
+模拟成功 动态注册
 
 RuntimeError: Unhandled syscall 0x78 (120) at 0xa001f10c, stopping emulation
 这个错误是因为在模拟执行指令的过程中遇到了系统调用 0x78，也就是 gettid()，但是这个系统调用没有被模拟处理。因此模拟引擎抛出了一个异常，并停止了模拟。
 解决这个问题的方法是在模拟引擎中添加处理 gettid() 系统调用的函数。你可以参考该框架中已经实现的其他系统调用处理函数，编写一个处理 gettid() 的函数，
 然后将其注册到模拟引擎中。这样当模拟引擎执行到 gettid() 系统调用时，就会调用你编写的处理函数，并正常返回。
 
-修改系统源码成功实现运行!!! 全局搜索 zhuhualong 为修改的源码
+修改源码成功实现运行!!! 全局搜索 Tesla 为修改的源码 --> 恢复
 AndroidNativeEmu\src\androidemu\cpu\syscall_hooks.py
 AndroidNativeEmu\src\androidemu\cpu\syscall_handlers.py
 

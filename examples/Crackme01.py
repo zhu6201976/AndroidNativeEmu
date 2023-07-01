@@ -5,7 +5,7 @@
 @Software: PyCharm
 @Csdn : https://blog.csdn.net/zhu6201976
 
-动态注册 并且需要传递Context参数
+动态注册 需传递Context参数
 com.wolf.ndktest.MainActivity
 so wolf
 public static native void greywolf(Context context, String str);
@@ -24,16 +24,6 @@ public static native void greywolf(Context context, String str);
 2023-03-19 21:42:54,811   DEBUG    androidemu.cpu.syscall_handlers | Executing syscall mprotect(e0200000, 00001000, 00000001) at 0xa004a874
 2023-03-19 21:42:54,811   DEBUG    androidemu.cpu.syscall_handlers | Executing syscall mprotect(e0200000, 00001000, 00000003) at 0xa004a874
 2023-03-19 21:42:54,811   DEBUG    androidemu.cpu.syscall_handlers | Executing syscall mprotect(e0200000, 00001000, 00000001) at 0xa004a874
-Traceback (most recent call last):
-  File "D:/study/Python/Projects/AndroidNativeEmu/examples/Crackme01.py", line 68, in <module>
-    lib_module = emulator.load_library("example_binaries/32/libwolf.so")
-  File "D:\study\Python\Projects\AndroidNativeEmu\src\androidemu\emulator.py", line 146, in load_library
-    self.call_native(fun_ptr, 0, 0, 0)
-  File "D:\study\Python\Projects\AndroidNativeEmu\src\androidemu\emulator.py", line 173, in call_native
-    self.uc.emu_start(addr, stop_pos - 1)
-  File "D:\Program Files\Python37\lib\site-packages\unicorn\unicorn.py", line 341, in emu_start
-    raise UcError(status)
-unicorn.unicorn.UcError: Invalid memory write (UC_ERR_WRITE_UNMAPPED)
 
 """
 import logging

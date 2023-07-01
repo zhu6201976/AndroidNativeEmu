@@ -1,7 +1,5 @@
 """
-模拟成功
-
-动态注册
+模拟成功 动态注册
 """
 import logging
 import posixpath

@@ -1,8 +1,6 @@
 """
-模拟成功
-
+模拟失败 动态注册
 拼多多 android v5.10.0 anti_token
-动态注册
 """
 import logging
 import posixpath
