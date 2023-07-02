@@ -23,11 +23,11 @@ class DeviceNative(metaclass=JavaClassDef, jvm_name='com/xunmeng/pinduoduo/secur
     def __init__(self):
         pass
 
-    @java_method_def(name='info', signature='(android.content.Context;J)Ljava/lang/String;', native=True)
+    @java_method_def(name='info', signature='(Landroid/content/Context;J)Ljava/lang/String;', native=True)
     def info(self, uc):
         pass
 
-    @java_method_def(name='info2', signature='(android.content.Context;J)Ljava/lang/String;', native=True)
+    @java_method_def(name='info2', signature='(Landroid/content/Context;J)Ljava/lang/String;', native=True)
     def info2(self, uc):
         pass
 
@@ -58,6 +58,7 @@ emulator.load_library("example_binaries/32/libdl.so")
 emulator.load_library("example_binaries/32/libstdc++.so")
 emulator.load_library("example_binaries/32/libm.so")
 emulator.load_library("example_binaries/32/liblog.so")
+emulator.load_library("example_binaries/32/libc++_shared.so")
 emulator.load_library("example_binaries/32/libUserEnv.so")
 lib_module = emulator.load_library("example_binaries/32/libPddSecure.so")
 
